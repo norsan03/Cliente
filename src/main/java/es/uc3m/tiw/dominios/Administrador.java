@@ -8,9 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USUARIOS")
-public class Usuario {
-	
+@Table(name="ADMINISTRADORES")
+public class Administrador {
+		
 		private static final long serialVersionUID = 1L;
 
 		@Id
@@ -26,12 +26,12 @@ public class Usuario {
 		private String email;
 		@Column(length = 25, nullable = false)
 		private String password;
+			
 		
-		
-		public Usuario() {
+		public Administrador() {
 		}
-		
-		public Usuario(long id, String nombre, String apellidos, String ciudad, String password, String email) {
+			
+		public Administrador(long id, String nombre, String apellidos, String ciudad, String password, String email) {
 			super();
 			this.id = id;
 			this.nombre = nombre;
@@ -39,29 +39,29 @@ public class Usuario {
 			this.ciudad = ciudad;
 			this.password = password;
 			this.email = email;
-		}
-		
+			}
+			
 		public long getId() {
 			return id;
 		}
 		public void setId(long id) {
 			this.id = id;
-		}		
+		}
 		public String getNombre() {
 			return nombre;
-		}		
+		}
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
-		}		
+		}
 		public String getApellidos() {
 			return apellidos;
-		}	
+		}			
 		public void setApellidos(String apellidos) {
 			this.apellidos = apellidos;
-		}		
+		}			
 		public String getCiudad() {
 			return ciudad;
-		}
+		}	
 		public void setCiudad(String ciudad) {
 			this.ciudad = ciudad;
 		}		
@@ -70,10 +70,10 @@ public class Usuario {
 		}		
 		public void setPassword(String password) {
 			this.password = password;
-		}	
+		}		
 		public String getEmail() {
 			return email;
-		}	
+		}		
 		public void setEmail(String email) {
 			this.email = email;
 		}
