@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import es.uc3m.tiw.dominios.Usuario;
 
-public interface UsuarioRepositury  extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepository  extends JpaRepository<Usuario, Long> {
 
 	List<Usuario> findAll();
 	
