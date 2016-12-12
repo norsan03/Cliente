@@ -24,6 +24,12 @@ private UsuarioDao usuarioDao;
 	return usuarioARegistrar;
 	}
 	
+	@RequestMapping(value="/editarUsuario", method = RequestMethod.POST)
+    public @ResponseBody Usuario editarUsuario(Usuario usuarioAEditar){
+    usuarioDao.delete(usuarioAEditar);
+    return usuarioAEditar;
+    }
+	
 	@RequestMapping(value="/eliminarUsuario", method = RequestMethod.DELETE)
     public @ResponseBody Usuario eliminarUsuario(Usuario usuarioAEliminar){
     usuarioDao.delete(usuarioAEliminar);
@@ -37,6 +43,12 @@ private UsuarioDao usuarioDao;
 	usuarioLogeado = comprobarUsuario(usuarios, usuarioPendiente.getEmail(),usuarioPendiente.getPassword()); 
 	return usuarioLogeado;
 	}
+	
+	@RequestMapping(value="/verPerfilUsuario", method = RequestMethod.GET)
+    public @ResponseBody Usuario verPerfilUsuario(Usuario usuarioAMostrar){
+    usuarioDao.delete(usuarioAMostrar);
+    return usuarioAMostrar;
+    }
 	
     private Usuario comprobarUsuario( List<Usuario> usuarios, String email, String password) {
             Usuario u = null;
