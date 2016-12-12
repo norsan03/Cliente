@@ -1,10 +1,11 @@
 package es.uc3m.tiw.Daos;
 
 import java.util.List;
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import es.uc3m.tiw.dominios.Usuario;
 
-public interface UsuarioDao  extends CrudRepository<Usuario, Long> {
+public interface UsuarioRepositury  extends JpaRepository<Usuario, Long> {
 
 	List<Usuario> findAll();
 	

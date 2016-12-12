@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import es.uc3m.tiw.Daos.UsuarioDao;
+import es.uc3m.tiw.Daos.UsuarioRepositury;
 import es.uc3m.tiw.dominios.Usuario;
 
 @RestController
 public class ControladorU {
 
 @Autowired
-private UsuarioDao usuarioDao;
+private UsuarioRepositury usuarioDao;
 
 	@RequestMapping(value="/registroUsuario", method = RequestMethod.POST)
 	public @ResponseBody Usuario registrarUsuario(@RequestBody Usuario usuarioARegistrar){
