@@ -1,4 +1,4 @@
-package es.uc3m.tiw.repositorio;
+package es.uc3m.tiw.Daos;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;

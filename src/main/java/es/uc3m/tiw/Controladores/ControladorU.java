@@ -1,4 +1,4 @@
-package es.uc3m.tiw.Usuario;
+package es.uc3m.tiw.Controladores;
 
 import java.util.List;
 
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.uc3m.tiw.Daos.UsuarioDao;
 import es.uc3m.tiw.dominios.Usuario;
-import es.uc3m.tiw.repositorio.UsuarioDao;
 
 @RestController
-public class UsuarioController {
+public class ControladorU {
 
 @Autowired
 private UsuarioDao usuarioDao;
