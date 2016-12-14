@@ -46,7 +46,7 @@ private AdministradorRepository administradorDao;
     return usuarioAEliminar;
     }
 
-	@RequestMapping(value="/login" ,method = RequestMethod.POST)
+	@RequestMapping(value="/validar" ,method = RequestMethod.POST)
 	public  @ResponseBody Usuario loginUsuario(@RequestBody Usuario usuarioPendiente){
 	Usuario usuarioLogeado = null;
 	List <Usuario> usuarios = usuarioDao.findAll();
