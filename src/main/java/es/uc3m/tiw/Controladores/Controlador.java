@@ -21,6 +21,8 @@ public class Controlador {
 private UsuarioRepository usuarioDao;
 private AdministradorRepository administradorDao;
 
+
+	
 	@RequestMapping(value="/registroUsuario", method = RequestMethod.POST)
 	public @ResponseBody Usuario registrarUsuario(@RequestBody Usuario usuarioARegistrar){
 	usuarioDao.save(usuarioARegistrar); //guardar, editar, borrar, findbyOne(Primary key) son métodos que vienen implementados ya en el CrudRepository
@@ -75,7 +77,7 @@ private AdministradorRepository administradorDao;
             for (Usuario usuario : usuarios) {
                     if (email.equals(usuario.getEmail()) && password.equals(usuario.getPassword())){
                             u = usuario;
-                            //break;
+                            break;
                     		}
             		}
             return u;

@@ -1,5 +1,7 @@
 package es.uc3m.tiw.dominios;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,18 +11,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USUARIOS")
-public class Usuario {
+public class Usuario implements Serializable {
 	
 		private static final long serialVersionUID = 1L;
 
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private long id;
-		@Column(length = 25, nullable = false)
+		@Column(length = 25)
 		private String nombre;
-		@Column(length = 25, nullable = false)
+		@Column(length = 25)
 		private String apellidos;
-		@Column(length = 25, nullable = false)
+		@Column(length = 25)
 		private String ciudad;
 		@Column(length = 25, nullable = false, unique = true)
 		private String email;
