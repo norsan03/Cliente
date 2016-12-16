@@ -3,6 +3,7 @@ package es.uc3m.tiw.Controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,6 +72,16 @@ private AdministradorRepository administradorDao;
     	administradorLogeado = comprobarAdministrador(administradores, administradorPendiente.getEmail(),administradorPendiente.getPassword());
     	return administradorLogeado;
     }
+	
+	@RequestMapping(value="/obtenerUsuario/{id}", method=RequestMethod.POST)
+	public @ResponseBody Usuario obtenerUusario(@PathVariable(value = "id") Integer id){
+		
+		Usuario usuarioEspecifico = usuarioDao.findById(id);
+		
+		return usuarioEspecifico;
+	}
+	
+	
 	
     private Usuario comprobarUsuario( List<Usuario> usuarios, String email, String password) {
             Usuario u = null;
