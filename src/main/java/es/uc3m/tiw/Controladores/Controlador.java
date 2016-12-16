@@ -88,7 +88,7 @@ private AdministradorRepository administradorDao;
         for (Administrador administrador : administradores) {
                 if (email.equals(administrador.getEmail()) && password.equals(administrador.getPassword())){
                         ad = administrador;
-                        //break;
+                        break;
                 		}
         		}
         return ad;
