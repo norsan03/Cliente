@@ -32,10 +32,10 @@ public class ClienteSpringApplication {
 		Set<Usuario> usuarios = new HashSet<>();
 		Set<Administrador> administrador = new HashSet<>();
 		
-		usuarios.add(new Usuario(0, "Miguel", "Torrejón", "Madrid", "mi@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Miguel", "Torrejón", "Madrid", "mi@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Miguel", "Torrejón", "Madrid", "mi@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Miguel", "Torrejón", "Madrid", "mi@gmail.com", "1234"));
+		usuarios.add(new Usuario(0, "Miguel", "Torrejon", "Madrid", "mi@gmail.com", "1234"));
+		usuarios.add(new Usuario(0, "Norberto", "Sanchez", "Madrid", "no@gmail.com", "1234"));
+		usuarios.add(new Usuario(0, "Marcos", "Mesonero", "Madrid", "ma@gmail.com", "1234"));
+		usuarios.add(new Usuario(0, "Borja", "Marroquin", "Madrid", "bo@gmail.com", "1234"));
 		
 		administrador.add(new Administrador(0, "admin@admin.admin", "admin"));
 
@@ -44,6 +44,8 @@ public class ClienteSpringApplication {
 		
 		repositoryAdmin.save(administrador);
 		repositoryAdmin.flush();
+		
+		
 	}
 
 }
