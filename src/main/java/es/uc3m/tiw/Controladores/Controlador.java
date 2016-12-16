@@ -3,11 +3,13 @@ package es.uc3m.tiw.Controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import es.uc3m.tiw.Daos.AdministradorRepository;
 import es.uc3m.tiw.Daos.UsuarioRepository;
@@ -29,16 +31,12 @@ private AdministradorRepository administradorDao;
 	return usuarioARegistrar;
 	}
 	
-	@RequestMapping(value="/editarUsuario", method = RequestMethod.POST)
-    public @ResponseBody Usuario editarUsuario(Usuario usuarioAEditar){
-	        usuarioAEditar.setNombre(usuarioAEditar.getNombre());
-	        usuarioAEditar.setApellidos(usuarioAEditar.getApellidos());
-	        usuarioAEditar.setCiudad(usuarioAEditar.getCiudad());
-	        usuarioAEditar.setEmail(usuarioAEditar.getEmail());
-	        usuarioAEditar.setPassword(usuarioAEditar.getPassword());
-	        usuarioDao.save(usuarioAEditar);	        
-    return usuarioAEditar;
-    }
+	@RequestMapping(value = "/modificarUsuario", method = RequestMethod.POST)
+	public @ResponseBody Usuario modificarUsuario (@RequestBody Usuario usuarioModificado){
+		usuarioDao.saveAndFlush(usuarioModificado);
+		return usuarioModificado;
+	}
+
 	
 	@RequestMapping(value="/eliminarUsuario", method = RequestMethod.DELETE)
     public @ResponseBody Usuario eliminarUsuario(Usuario usuarioAEliminar){
