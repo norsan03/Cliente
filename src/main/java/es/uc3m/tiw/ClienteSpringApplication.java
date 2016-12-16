@@ -18,34 +18,12 @@ import es.uc3m.tiw.dominios.Administrador;
 @SpringBootApplication
 public class ClienteSpringApplication {
 
-	@Autowired
-	private UsuarioRepository repositoryUsuarios;
-	private AdministradorRepository repositoryAdmin;
+
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ClienteSpringApplication.class, args);
 	}
 	
-	
-	@PostConstruct
-	public void init() {
-		Set<Usuario> usuarios = new HashSet<>();
-		Set<Administrador> administrador = new HashSet<>();
-		
-		usuarios.add(new Usuario(0, "Miguel", "Torrejon", "Madrid", "mi@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Norberto", "Sanchez", "Madrid", "no@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Marcos", "Mesonero", "Madrid", "ma@gmail.com", "1234"));
-		usuarios.add(new Usuario(0, "Borja", "Marroquin", "Madrid", "bo@gmail.com", "1234"));
-		
-		administrador.add(new Administrador(0, "admin@admin.admin", "admin"));
 
-		repositoryUsuarios.save(usuarios);
-		repositoryUsuarios.flush();
-		
-		repositoryAdmin.save(administrador);
-		repositoryAdmin.flush();
-		
-		
-	}
 
 }
