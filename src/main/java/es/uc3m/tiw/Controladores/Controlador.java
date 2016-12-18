@@ -54,15 +54,7 @@ private AdministradorRepository administradorDao;
 	}*/
 	
 	@RequestMapping(value="/eliminarUsuario/{id}", method = RequestMethod.DELETE)
-    public @ResponseBody void eliminarUsuario(@PathVariable long id){
-    	
-	    /* ResponseEntity<Producto[]> responseEntity=restTemplate.getForEntity("http://localhost:8020/obtenerMisProductos/{id}", Producto[].class, id);
-	     Producto[] productosABorrar = (Producto[])responseEntity.getBody();
-	     List<Producto> listaProductosABorrar= Arrays.asList(productosABorrar);
-	     for(int i = 0; i < listaProductosABorrar.size(); i++){
-	    	 listaProductosABorrar.get(i).getId();
-	    	 restTemplate.delete("http://localhost:8020/borrarProducto/{id}",id);
-	     }   */ 	
+    public @ResponseBody void eliminarUsuario(@PathVariable long id){	
     	usuarioDao.delete(id);
     	
     	
