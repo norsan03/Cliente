@@ -53,12 +53,20 @@ private AdministradorRepository administradorDao;
 		return;
 	}*/
 	
-	@RequestMapping(value="/eliminarUsuario/{id}", method = RequestMethod.DELETE)
-    public @ResponseBody void eliminarUsuario(@PathVariable long id){	
-    	usuarioDao.delete(id);
-    	
-    	
-    }
+	
+	@RequestMapping(value="/eliminarUsuario/{id}", method=RequestMethod.DELETE)
+	public @ResponseBody Usuario eliminarUsuario(@PathVariable(value = "id") Integer id){
+		Usuario usuarioABorrar = usuarioDao.findById(id);
+		usuarioDao.delete(usuarioABorrar);
+		return usuarioABorrar;
+	}
+	
+	@RequestMapping(value="/obtenerUsuarios", method=RequestMethod.GET)
+	public @ResponseBody List<Usuario> obtenerUsuarios(){
+		
+		List <Usuario> usuarios = usuarioDao.findAll();
+		return usuarios;
+	}
 
 	@RequestMapping(value="/validar" ,method = RequestMethod.POST)
 	public  @ResponseBody Usuario loginUsuario(@RequestBody Usuario usuarioPendiente){
@@ -86,6 +94,13 @@ private AdministradorRepository administradorDao;
     	return administradorLogeado;
     }
 	
+	
+	@RequestMapping(value="/obtenerUsuario/{id}", method=RequestMethod.GET)
+	public @ResponseBody Usuario obtenerUsuario(@PathVariable(value = "id") Integer id){
+		Usuario usuarioEspecifico = usuarioDao.findById(id);
+		return usuarioEspecifico;
+	}
+	
     private Usuario comprobarUsuario( List<Usuario> usuarios, String email, String password) {
             Usuario u = null;
             for (Usuario usuario : usuarios) {
@@ -102,7 +117,7 @@ private AdministradorRepository administradorDao;
         for (Administrador administrador : administradores) {
                 if (email.equals(administrador.getEmail()) && password.equals(administrador.getPassword())){
                         ad = administrador;
-                        //break;
+                        break;
                 		}
         		}
         return ad;

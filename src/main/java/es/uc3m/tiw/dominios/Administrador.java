@@ -16,7 +16,7 @@ public class Administrador {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private long id;
-		@Column(length = 25, nullable = false, unique = true)
+		@Column(length = 25, nullable = false)
 		private String email;
 		@Column(length = 25, nullable = false)
 		private String password;
